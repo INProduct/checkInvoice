@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from peewee import SqliteDatabase, PostgresqlDatabase, MySQLDatabase
 
 import models
@@ -25,7 +25,7 @@ with db:
 
 @app.route('/')
 def index_handler():
-    return "hello"
+    return render_template('index.html')
 
 
 @app.route('/dashboard')
