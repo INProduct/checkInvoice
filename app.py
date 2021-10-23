@@ -15,6 +15,21 @@ DB_HOST = 'localhost'
 
 ############################## end env variables
 
+############################# site info todo: change to normal way
+site_info = {
+    'site_title': 'INPvoice',
+    'site_language': 'de',
+    'site_name': 'INProduct',
+    'site_author': 'INProduct',
+    'site_description': 'A Invoice Tracking Software',
+
+}
+
+
+
+
+############################# end site info
+
 if DB_TYPE == 'sqlite':
     db = SqliteDatabase('database.db')
     models.db.initialize(db)
@@ -25,7 +40,7 @@ with db:
 
 @app.route('/')
 def index_handler():
-    return render_template('index.html')
+    return render_template('index.html', site_info=site_info, site_title='Dashboard')
 
 
 @app.route('/dashboard')
